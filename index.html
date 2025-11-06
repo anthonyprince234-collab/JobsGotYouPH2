@@ -1,0 +1,793 @@
+<!-- index.html (for repo: jobsgotyoph) -->
+<!-- IMPORTANT: After adding this file to your repo, create an empty file named ".nojekyll" in the same repo root to disable Jekyll on GitHub Pages. -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>JobsGotYouPH | Find Your Way to a Job</title>
+
+  <!-- base href for GitHub Pages under your username and repo -->
+  <base href="/anthonyprince234-collab/jobsgotyoph/">
+
+  <!-- favicon: blue square with white J (SVG data URI) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Crect width='100%25' height='100%25' rx='6' ry='6' fill='%230b64d6'/%3E%3Ctext x='50%25' y='55%25' text-anchor='middle' font-size='18' font-family='Arial' fill='%23ffffff'%3EJ%3C/text%3E%3C/svg%3E">
+
+  <style>
+    :root{
+      --dark:#05060a; --black:#000; --dblue:#062a52; --accent:#0b64d6;
+      --muted:#94a3b8; --card:#0b1724; --glass: rgba(255,255,255,0.03);
+      --radius:12px; --maxw:1200px; --glass-2: rgba(255,255,255,0.02);
+      --accent-2: #2b6cb0;
+    }
+    *{box-sizing:border-box;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;}
+    html,body{height:100%}
+    body{margin:0;background:linear-gradient(180deg,var(--dblue),var(--black));color:#E6EEF8;min-height:100vh;display:flex;justify-content:center;align-items:flex-start;padding:28px;}
+    .wrap{width:100%;max-width:var(--maxw);margin:0 auto}
+    nav{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px;opacity:0;transform:translateY(-8px);animation:fadeInUp .6s .2s forwards}
+    @keyframes fadeInUp{to{opacity:1;transform:none}}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:700;color:white}
+    h1{margin:0;font-size:18px}
+    .muted{color:var(--muted);font-size:13px}
+    .navlinks{display:flex;gap:10px;align-items:center}
+    .navlinks button{background:transparent;border:none;color:inherit;padding:8px 10px;border-radius:8px;cursor:pointer;transition:background .18s}
+    .navlinks button:hover{background:var(--glass)}
+    .navlinks button.active{background:var(--glass);border:1px solid rgba(255,255,255,0.04)}
+    .layout{display:grid;grid-template-columns:1fr 360px;gap:16px}
+    @media (max-width:1000px){.layout{grid-template-columns:1fr}.navlinks{gap:6px}.logo{width:44px;height:44px}}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:14px;border-radius:var(--radius);box-shadow:0 8px 24px rgba(2,6,23,.6);transition:transform .14s,box-shadow .14s}
+    .card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(2,6,23,.7)}
+    .hero{padding:20px;display:flex;flex-direction:column;gap:10px}
+    .hero h2{font-size:28px;margin:0}
+    .hero p{margin:0;color:var(--muted)}
+    .searchbar{display:flex;gap:8px;margin-top:12px}
+    .searchbar input, .searchbar select{flex:1;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+    .btn{background:var(--accent);color:white;padding:9px 12px;border-radius:10px;border:none;cursor:pointer;font-weight:700;transition:transform .12s,box-shadow .12s}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(11,100,214,0.12)}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06)}
+    .jobs{display:grid;gap:12px;margin-top:12px}
+    .job{padding:12px;border-radius:10px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);transition:transform .12s}
+    .job:hover{transform:translateY(-4px)}
+    .job h3{margin:0;font-size:16px}
+    .meta{color:var(--muted);font-size:13px;margin-top:6px}
+    .actions{display:flex;gap:8px;margin-top:8px}
+    .sidebar .section{margin-bottom:12px}
+    .form-row{display:flex;flex-direction:column;gap:6px;margin-bottom:8px}
+    input[type="text"], input[type="email"], input[type="password"], textarea, select{padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;width:100%}
+    textarea{min-height:90px;resize:vertical}
+    .small{font-size:13px;color:var(--muted)}
+    footer{margin-top:20px;text-align:center;color:var(--muted);font-size:13px;padding-bottom:30px}
+    /* modal */
+    .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,0.6);display:flex;align-items:center;justify-content:center;z-index:80}
+    .modal{width:95%;max-width:820px;background:linear-gradient(180deg,#071227,#071423);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);animation:scaleIn .18s ease-out}
+    @keyframes scaleIn{from{transform:scale(.98);opacity:0}to{transform:none;opacity:1}}
+    .tabs{display:flex;gap:8px;margin-bottom:10px}
+    .tabs button{padding:8px 10px;border-radius:8px;border:none;background:transparent;color:var(--muted);cursor:pointer}
+    .tabs button.active{background:var(--glass);color:white}
+    .file-info{font-size:13px;color:var(--muted);margin-top:6px}
+    a.download-link{color:var(--accent);text-decoration:none;font-weight:700}
+    .center{display:flex;align-items:center;justify-content:center}
+    .avatar{width:72px;height:72px;border-radius:12px;background:var(--glass);display:inline-flex;align-items:center;justify-content:center;font-weight:700}
+    .chip{padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.02);font-size:13px}
+    /* splash */
+    #splashRoot{position:fixed;inset:0;z-index:120;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,var(--dblue),var(--black));}
+    .splash-card{width:94%;max-width:880px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:30px;border-radius:14px;text-align:center;box-shadow:0 22px 60px rgba(2,6,23,0.8);opacity:0;transform:translateY(10px);animation:fadeInUp .6s .08s forwards}
+    .splash-card h1{margin:0;font-size:30px}
+    .splash-sub{color:var(--muted);margin-top:10px}
+    .splash-cta{margin-top:20px;display:flex;gap:12px;justify-content:center}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav>
+      <div class="brand">
+        <div class="logo">JG</div>
+        <div>
+          <h1>JobsGotYouPH</h1>
+          <div class="muted">Find Your Way to a Job — VAs & Freelancers</div>
+        </div>
+      </div>
+
+      <div class="navlinks" id="navlinks"></div>
+    </nav>
+
+    <main id="mainArea" class="layout">
+      <section>
+        <div id="pageContent"></div>
+      </section>
+
+      <aside>
+        <div class="card sidebar">
+          <div class="section">
+            <strong>Post a Job</strong>
+            <div class="small" style="margin-top:8px">Post openings for Virtual Assistants & Freelancers</div>
+            <div style="margin-top:8px">
+              <div class="form-row"><input id="jobTitle" type="text" placeholder="Job title"></div>
+              <div class="form-row">
+                <select id="jobCategory">
+                  <option value="">Select category</option>
+                  <option>Virtual Assistant</option>
+                  <option>Freelancer</option>
+                  <option>Social Media Manager</option>
+                  <option>Graphic Designer</option>
+                  <option>Content Writer</option>
+                </select>
+              </div>
+              <div class="form-row"><textarea id="jobDescription" placeholder="Job description, requirements, rate"></textarea></div>
+              <div style="display:flex;gap:8px">
+                <button class="btn" id="postJobBtn">Post Job</button>
+                <button class="btn ghost" id="clearJobsBtn">Clear</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="section" style="margin-top:12px">
+            <strong>Account</strong>
+            <div id="accountArea" style="margin-top:8px"></div>
+          </div>
+
+          <div class="section" style="margin-top:12px">
+            <strong>My Applications</strong>
+            <div id="myApps" style="margin-top:8px">
+              <div class="small">No applications yet.</div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      © 2025 JobsGotYouPH — Connecting Filipino Virtual Assistants & Freelancers
+    </footer>
+  </div>
+
+  <!-- Splash screen root -->
+  <div id="splashRoot" aria-hidden="false">
+    <div class="splash-card" role="dialog" aria-label="Welcome to JobsGotYouPH">
+      <h1>Welcome to JobsGotYouPH</h1>
+      <div class="splash-sub">Find Your Way to a Job — Virtual Assistants & Freelancers</div>
+      <div class="splash-cta">
+        <button id="getStartedBtn" class="btn">Get Started</button>
+        <button id="learnMoreBtn" class="btn ghost">Learn More</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="modalRoot"></div>
+
+  <script>
+    /* --------------------------
+       Final index.html (GitHub Pages ready)
+       - localStorage storage for user, jobs, apps
+       - resume & avatar saved as dataUrl
+       - splash screen (stays until Get Started)
+       - profile (avatar, portfolio, certs, prev jobs)
+       - 50 example jobs
+       ---------------------------*/
+
+    const LS_USER = 'jg_user_v3';
+    const LS_JOBS = 'jg_jobs_v3';
+    const LS_APPS = 'jg_apps_v3';
+
+    const $ = (s) => document.querySelector(s);
+    const $$ = (s) => Array.from(document.querySelectorAll(s));
+    const timeSince = (ts) => {
+      try {
+        const d = Date.now() - ts;
+        const days = Math.floor(d / (1000*60*60*24));
+        if (days === 0) return 'Today';
+        if (days === 1) return '1 day ago';
+        return days + ' days ago';
+      } catch(e) { return ''; }
+    };
+    const escapeHtml = s => (s||'').replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+
+    function loadUser(){ return JSON.parse(localStorage.getItem(LS_USER) || 'null'); }
+    function saveUser(u){ localStorage.setItem(LS_USER, JSON.stringify(u)); }
+    function loadJobs(){ return JSON.parse(localStorage.getItem(LS_JOBS) || '[]'); }
+    function saveJobs(j){ localStorage.setItem(LS_JOBS, JSON.stringify(j)); }
+    function loadApps(){ return JSON.parse(localStorage.getItem(LS_APPS) || '[]'); }
+    function saveApps(a){ localStorage.setItem(LS_APPS, JSON.stringify(a)); }
+
+    let user = loadUser();
+    let jobs = loadJobs();
+    let apps = loadApps();
+    let currentPage = 'home';
+
+    function addExampleJobsIfNeeded(){
+      if (jobs && jobs.length >= 50) return;
+      const samples = [
+        'Part-Time Customer Support (AUS hours)',
+        'Virtual Assistant — Email & Calendar Management',
+        'Freelance Graphic Designer (Branding)',
+        'Social Media Manager — Facebook & TikTok',
+        'Content Writer — Blog & SEO',
+        'E-commerce Product Lister',
+        'Virtual Bookkeeper (QuickBooks)',
+        'Remote Sales Representative',
+        'Data Entry Specialist',
+        'WordPress Website Manager',
+        'Virtual Assistant — Admin & Research',
+        'Customer Success Specialist',
+        'Landing Page Designer',
+        'SEO Specialist (On-page)',
+        'Video Editor — Short-form',
+        'PPC Ads Specialist (Facebook Ads)',
+        'LinkedIn Outreach Specialist',
+        'Illustrator — Social Posts',
+        'Podcast Editor',
+        'Cold Email Outreach VA',
+        'Email Marketing Specialist',
+        'Amazon Seller Support',
+        'Graphic Designer — Social Ads',
+        'Virtual Recruiter — Hiring Support',
+        'UX/UI Designer — App',
+        'Translator (English-Filipino)',
+        'Virtual HR Assistant',
+        'Customer Chat Support',
+        'Tech Support (SaaS)',
+        'Invoice & Billing Assistant',
+        'Data Analyst — Excel & Sheets',
+        'Real Estate VA — Listings',
+        'Appointment Setter — BPO',
+        'Graphic Designer — Infographics',
+        'Social Media Ads Specialist',
+        'Content Strategist — Freelancer',
+        'Virtual Project Coordinator',
+        'Remote QA Tester',
+        'Email & CRM Specialist',
+        'Copywriter — Ad Creatives',
+        'Influencer Outreach Coordinator',
+        'Shopify Store Assistant',
+        'Resume Writer — Freelance',
+        'Voiceover Artist — Short Ads',
+        'Virtual Event Coordinator',
+        'Customer Onboarding Specialist',
+        'Ebook Designer & Formatter',
+        'Lead Generation Specialist',
+        'Virtual Research Assistant'
+      ];
+      const categories = ['Virtual Assistant','Freelancer','Social Media Manager','Graphic Designer','Content Writer','E-commerce'];
+      const list = samples.map((title,i) => ({
+        id: Date.now() + i + 1000,
+        title,
+        category: categories[i % categories.length],
+        description: `We are hiring for: ${title}. Remote role — send your resume. Competitive rates.`
+      }));
+      jobs = (jobs || []).concat(list);
+      if (jobs.length < 50){
+        let idx=0;
+        while (jobs.length < 50){
+          const clone = {...list[idx % list.length], id: Date.now() + jobs.length + 2000 + idx};
+          jobs.push(clone); idx++;
+        }
+      }
+      saveJobs(jobs);
+    }
+    addExampleJobsIfNeeded();
+
+    function buildNav(){
+      const nav = $('#navlinks');
+      nav.innerHTML = '';
+      const makeBtn = (key, label) => {
+        const b = document.createElement('button');
+        b.textContent = label;
+        b.onclick = () => { currentPage = key; render(); };
+        if (currentPage === key) b.classList.add('active');
+        return b;
+      };
+      nav.appendChild(makeBtn('home','Home'));
+      nav.appendChild(makeBtn('jobs','Jobs'));
+      const dashBtn = makeBtn('dashboard','Dashboard');
+      if (!user) dashBtn.onclick = () => { openAuthModal(); };
+      nav.appendChild(dashBtn);
+
+      if (!user) {
+        const auth = document.createElement('button');
+        auth.textContent = 'Sign In / Register';
+        auth.className = 'btn';
+        auth.onclick = openAuthModal;
+        nav.appendChild(auth);
+      } else {
+        const logout = document.createElement('button');
+        logout.textContent = 'Logout';
+        logout.className = 'btn ghost';
+        logout.onclick = () => { user=null; saveUser(null); render(); };
+        nav.appendChild(logout);
+      }
+    }
+
+    function renderHome(){
+      return `
+        <div class="card hero" style="opacity:0;animation:fadeInUp .6s .08s forwards">
+          <h2>Find Your Way to a Job</h2>
+          <p class="small">JobsGotYouPH helps Filipino Virtual Assistants & Freelancers connect with clients. Create a profile, post jobs, upload resume & portfolio, and apply — all in the browser.</p>
+          <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+            <button class="btn" id="ctaBrowse">Browse Jobs</button>
+            <button class="btn ghost" id="ctaPost">Post a Job</button>
+          </div>
+        </div>
+        <div style="margin-top:12px" id="homeJobsArea"></div>
+      `;
+    }
+
+    function renderJobsList(jlist){
+      if (!jlist || jlist.length === 0) return '<div class="card small">No job posts yet.</div>';
+      return jlist.map(j => `
+        <div class="job card">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start">
+            <div>
+              <h3>${escapeHtml(j.title)}</h3>
+              <div class="meta">${escapeHtml(j.category)} • <span class="small muted">Job ID ${j.id}</span></div>
+            </div>
+            <div class="small muted">${timeSince(j.id)}</div>
+          </div>
+          <div class="small" style="color:var(--muted);margin-top:8px">${escapeHtml(j.description)}</div>
+          <div class="actions">
+            <button class="btn" data-act="apply" data-id="${j.id}">Apply</button>
+            <button class="btn ghost" data-act="view" data-id="${j.id}">View</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function renderDashboard(){
+      if (!user) return '<div class="card"><div class="small">Please sign in to view your dashboard.</div></div>';
+      return `
+        <div class="card" style="display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+            <div style="display:flex;gap:12px;align-items:center">
+              <div class="avatar" id="dashAvatar">${user.avatarName ? `<img src="${user.avatarData}" alt="avatar" style="width:72px;height:72px;border-radius:12px;object-fit:cover"/>` : (user.name ? user.name.split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase() : 'JG')}</div>
+              <div>
+                <strong>${escapeHtml(user.name)}</strong>
+                <div class="small muted">${escapeHtml(user.email)}</div>
+              </div>
+            </div>
+
+            <div style="display:flex;gap:8px;align-items:center">
+              <button class="btn" id="editProfileBtn">Edit Profile</button>
+              <button class="btn ghost" id="uploadResumeBtn">Upload Resume</button>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 320px;gap:12px">
+            <div>
+              <h3 style="margin:0 0 8px 0">My Applications</h3>
+              <div id="dashAppsArea">${renderMyApplicationsHtml()}</div>
+            </div>
+
+            <div>
+              <h3 style="margin:0 0 8px 0">Profile Snapshot</h3>
+              <div class="small muted">Portfolio, certificates & previous jobs</div>
+              <div style="margin-top:8px">
+                ${user.portfolio && user.portfolio.length ? user.portfolio.map(p=>`<div style="padding:8px;border-radius:8px;background:rgba(255,255,255,0.02);margin-bottom:8px"><a href="${p.link}" target="_blank" class="download-link">${escapeHtml(p.title||p.link)}</a></div>`).join('') : `<div class="small muted">No portfolio links added.</div>`}
+                <div style="margin-top:8px">
+                  <div><strong>Certificates</strong></div>
+                  ${user.certificates && user.certificates.length ? user.certificates.map(c=>`<div class="small" style="margin-top:6px">${escapeHtml(c)}</div>`).join('') : `<div class="small muted" style="margin-top:6px">No certificates saved.</div>`}
+                </div>
+                <div style="margin-top:8px">
+                  <div><strong>Previous Jobs</strong></div>
+                  ${user.previousJobs && user.previousJobs.length ? user.previousJobs.map(j=>`<div class="small" style="margin-top:6px">${escapeHtml(j)}</div>`).join('') : `<div class="small muted" style="margin-top:6px">No previous jobs listed.</div>`}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderMyApplicationsHtml(){
+      if (!user) return '<div class="small muted">Sign in to see applications.</div>';
+      const mine = apps.filter(a => a.userEmail === user.email);
+      if (!mine.length) return '<div class="small muted">No applications yet.</div>';
+      return mine.map(a => `
+        <div style="padding:8px;border-top:1px solid rgba(255,255,255,0.03);">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <div><strong>${escapeHtml(a.jobTitle)}</strong></div>
+              <div class="small muted">Applied: ${new Date(a.appliedAt).toLocaleString()}</div>
+            </div>
+            <div style="text-align:right">
+              ${a.resumeName ? `<div class="small">Resume: <a class="download-link" href="${a.resumeData}" download="${a.resumeName}">${escapeHtml(a.resumeName)}</a></div>` : '<div class="small muted">No resume</div>'}
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function render(){
+      buildNav();
+      const page = $('#pageContent');
+      if (!page) return;
+      if (currentPage === 'home'){
+        page.innerHTML = renderHome();
+        $('#ctaBrowse').onclick = () => { currentPage='jobs'; render(); };
+        $('#ctaPost').onclick = () => { document.getElementById('jobTitle').focus(); };
+        $('#homeJobsArea').innerHTML = '<div style="margin-top:12px">' + renderJobsList(jobs.slice(0,8)) + '</div>';
+        attachJobActions();
+      } else if (currentPage === 'jobs'){
+        page.innerHTML = `<div class="card"><div style="display:flex;justify-content:space-between;align-items:center"><strong>Available Jobs</strong><div class="small muted">${jobs.length} postings</div></div>${renderJobsList(jobs)}</div>`;
+        attachJobActions();
+      } else if (currentPage === 'dashboard'){
+        page.innerHTML = renderDashboard();
+        const upBtn = $('#uploadResumeBtn');
+        if (upBtn) upBtn.onclick = openResumeUploadModal;
+        const editBtn = $('#editProfileBtn');
+        if (editBtn) editBtn.onclick = openEditProfileModal;
+      }
+      renderSidebarAccount();
+      renderSidebarApps();
+    }
+
+    function attachJobActions(){
+      $$('[data-act="apply"]').forEach(b => b.onclick = (e) => {
+        const id = +b.dataset.id; openApplyModal(id);
+      });
+      $$('[data-act="view"]').forEach(b => b.onclick = (e) => {
+        const id = +b.dataset.id; openViewModal(id);
+      });
+    }
+
+    function renderSidebarAccount(){
+      const area = $('#accountArea');
+      if (!area) return;
+      if (!user){
+        area.innerHTML = `<div class="small muted">Not signed in</div><div style="margin-top:8px"><button class="btn" onclick="openAuthModal()">Sign In / Register</button></div>`;
+      } else {
+        area.innerHTML = `<div style="display:flex;align-items:center;gap:8px"><div class="avatar" style="width:48px;height:48px">${user.avatarName ? `<img src="${user.avatarData}" alt="avatar" style="width:48px;height:48px;border-radius:8px;object-fit:cover"/>` : (user.name ? user.name.split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase() : 'JG')}</div><div><strong>${escapeHtml(user.name)}</strong><div class="small muted">${escapeHtml(user.email)}</div></div></div><div style="margin-top:8px;display:flex;gap:8px"><button class="btn" id="goDashBtn">Dashboard</button><button class="btn ghost" id="logoutBtn">Logout</button></div>`;
+        $('#goDashBtn').onclick = () => { currentPage='dashboard'; render(); };
+        $('#logoutBtn').onclick = () => { user=null; saveUser(null); render(); };
+      }
+    }
+
+    function renderSidebarApps(){
+      const area = $('#myApps');
+      if (!area) return;
+      if (!user) { area.innerHTML = '<div class="small muted">Sign in to view applications.</div>'; return; }
+      const mine = apps.filter(a => a.userEmail === user.email);
+      if (!mine.length) { area.innerHTML = '<div class="small muted">No applications yet.</div>'; return; }
+      area.innerHTML = mine.map(a => `<div style="padding:8px;border-top:1px solid rgba(255,255,255,0.03)"><div><strong>${escapeHtml(a.jobTitle)}</strong></div><div class="small muted">${new Date(a.appliedAt).toLocaleDateString()}</div></div>`).join('');
+    }
+
+    $('#postJobBtn').onclick = () => {
+      const title = $('#jobTitle').value.trim();
+      const cat = $('#jobCategory').value.trim();
+      const desc = $('#jobDescription').value.trim();
+      if (!title || !desc) { alert('Please provide title and description.'); return; }
+      const job = { id: Date.now(), title, category: cat||'Freelancer', description: desc };
+      jobs.unshift(job);
+      saveJobs(jobs);
+      $('#jobTitle').value=''; $('#jobDescription').value=''; $('#jobCategory').value='';
+      alert('Job posted.');
+      render();
+    };
+
+    $('#clearJobsBtn').onclick = () => {
+      if (!confirm('Clear all jobs?')) return;
+      jobs = []; saveJobs(jobs); render();
+    };
+
+    function openModal(html){
+      const root = $('#modalRoot');
+      root.innerHTML = '';
+      const backdrop = document.createElement('div');
+      backdrop.className = 'modal-backdrop';
+      const modal = document.createElement('div');
+      modal.className = 'modal';
+      modal.innerHTML = html;
+      backdrop.appendChild(modal);
+      root.appendChild(backdrop);
+      backdrop.onclick = (e) => { if (e.target === backdrop) closeModal(); };
+      return modal;
+    }
+    function closeModal(){ $('#modalRoot').innerHTML=''; }
+
+    function openAuthModal(){
+      const html = `
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <div style="flex:1;min-width:220px">
+            <div class="small muted">Register</div>
+            <div style="margin-top:8px">
+              <input id="regName" placeholder="Full name" type="text" />
+              <input id="regEmail" placeholder="Email" type="email" style="margin-top:8px"/>
+              <input id="regPass" placeholder="Password" type="password" style="margin-top:8px"/>
+              <div style="margin-top:10px"><button class="btn" id="regBtn">Create account</button></div>
+            </div>
+          </div>
+          <div style="flex:1;min-width:220px">
+            <div class="small muted">Sign in</div>
+            <div style="margin-top:8px">
+              <input id="logEmail" placeholder="Email" type="email" />
+              <input id="logPass" placeholder="Password" type="password" style="margin-top:8px" />
+              <div style="margin-top:10px"><button class="btn" id="loginBtn">Sign in</button></div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:12px" class="small muted">Note: This demo stores account data in your browser only (localStorage). For production use a backend/auth system.</div>
+      `;
+      const modal = openModal(html);
+      modal.querySelector('#regBtn').onclick = () => {
+        const name = modal.querySelector('#regName').value.trim();
+        const email = modal.querySelector('#regEmail').value.trim();
+        const pass = modal.querySelector('#regPass').value;
+        if (!name || !email || !pass) { alert('Please fill all fields'); return; }
+        user = { name, email, password: pass, resumeName:null, resumeData:null, avatarName:null, avatarData:null, portfolio:[], certificates:[], previousJobs:[] };
+        saveUser(user);
+        closeModal();
+        currentPage='dashboard';
+        render();
+      };
+      modal.querySelector('#loginBtn').onclick = () => {
+        const email = modal.querySelector('#logEmail').value.trim();
+        const pass = modal.querySelector('#logPass').value;
+        const saved = loadUser();
+        if (saved && saved.email === email && saved.password === pass) {
+          user = saved;
+          closeModal();
+          currentPage='dashboard';
+          render();
+        } else {
+          alert('Invalid credentials or account not found.');
+        }
+      };
+    }
+    window.openAuthModal = openAuthModal;
+
+    function openViewModal(jobId){
+      const job = jobs.find(j => j.id === jobId);
+      if (!job) return alert('Job not found');
+      const html = `
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div>
+            <h3 style="margin:0">${escapeHtml(job.title)}</h3>
+            <div class="small muted">${escapeHtml(job.category)}</div>
+          </div>
+          <div class="small muted">${timeSince(job.id)}</div>
+        </div>
+        <div style="margin-top:12px;color:var(--muted)">${escapeHtml(job.description)}</div>
+        <div style="margin-top:12px;display:flex;gap:8px">
+          <button class="btn" id="viewApplyBtn">Apply</button>
+          <button class="btn ghost" id="viewCloseBtn">Close</button>
+        </div>
+      `;
+      const modal = openModal(html);
+      modal.querySelector('#viewApplyBtn').onclick = () => { closeModal(); openApplyModal(jobId); };
+      modal.querySelector('#viewCloseBtn').onclick = closeModal;
+    }
+
+    function openApplyModal(jobId){
+      const job = jobs.find(j => j.id === jobId);
+      if (!job) return alert('Job not found');
+      if (!user) return openAuthModal();
+      const html = `
+        <h3 style="margin:0">Apply — ${escapeHtml(job.title)}</h3>
+        <div style="margin-top:8px" class="small muted">Position: ${escapeHtml(job.category)}</div>
+        <div style="margin-top:12px;display:grid;gap:8px">
+          <input id="appName" type="text" value="${escapeHtml(user.name)}" placeholder="Full name" />
+          <input id="appEmail" type="email" value="${escapeHtml(user.email)}" placeholder="Email" />
+          <textarea id="appNote" placeholder="Message / cover note"></textarea>
+          <div>
+            <label class="small muted">Upload resume (PDF/DOC) — optional (you can also upload in Dashboard)</label>
+            <input id="appResume" type="file" accept=".pdf,.doc,.docx" />
+            <div id="appResumeInfo" class="file-info"></div>
+          </div>
+          <div style="display:flex;gap:8px">
+            <button class="btn" id="sendAppBtn">Send Application</button>
+            <button class="btn ghost" id="cancelAppBtn">Cancel</button>
+          </div>
+        </div>
+      `;
+      const modal = openModal(html);
+
+      const fileInput = modal.querySelector('#appResume');
+      const info = modal.querySelector('#appResumeInfo');
+      let resumeData = null, resumeName = null;
+
+      fileInput.onchange = (e) => {
+        const f = e.target.files[0];
+        if (!f) { info.textContent=''; return; }
+        resumeName = f.name;
+        info.textContent = 'Preparing: ' + resumeName;
+        const reader = new FileReader();
+        reader.onload = function(ev){
+          resumeData = ev.target.result;
+          info.textContent = 'Ready: ' + resumeName;
+        };
+        reader.readAsDataURL(f);
+      };
+
+      modal.querySelector('#sendAppBtn').onclick = () => {
+        const name = modal.querySelector('#appName').value.trim();
+        const email = modal.querySelector('#appEmail').value.trim();
+        const note = modal.querySelector('#appNote').value.trim();
+        if (!name || !email) { alert('Name and email required'); return; }
+        const exists = apps.find(a => a.jobId === jobId && a.userEmail === email);
+        if (exists) { alert('You already applied for this job'); return; }
+        const application = { jobId, jobTitle: job.title, userEmail: email, name, note, appliedAt: Date.now(), resumeName: resumeName || user.resumeName || null, resumeData: resumeData || user.resumeData || null };
+        apps.unshift(application); saveApps(apps);
+        closeModal(); render(); alert('Application submitted — good luck!');
+      };
+
+      modal.querySelector('#cancelAppBtn').onclick = closeModal;
+    }
+
+    function openResumeUploadModal(){
+      if (!user) { alert('Sign in first'); return; }
+      const html = `
+        <h3>Upload / Update Resume</h3>
+        <div style="margin-top:8px" class="small muted">Accepted: PDF, DOC, DOCX (stored locally in your browser)</div>
+        <div style="margin-top:12px;display:grid;gap:8px">
+          <input id="dashResume" type="file" accept=".pdf,.doc,.docx" />
+          <div id="dashResumeInfo" class="file-info">${user.resumeName ? 'Current: ' + escapeHtml(user.resumeName) : 'No resume uploaded'}</div>
+          <div style="display:flex;gap:8px">
+            <button class="btn" id="saveResumeBtn">Save Resume</button>
+            <button class="btn ghost" id="cancelResumeBtn">Cancel</button>
+          </div>
+        </div>
+      `;
+      const modal = openModal(html);
+      const input = modal.querySelector('#dashResume');
+      const info = modal.querySelector('#dashResumeInfo');
+
+      let chosenData = null, chosenName = null;
+      input.onchange = (e) => {
+        const f = e.target.files[0];
+        if (!f) { info.textContent = 'No file chosen'; return; }
+        chosenName = f.name;
+        info.textContent = 'Preparing: ' + chosenName;
+        const r = new FileReader();
+        r.onload = ev => {
+          chosenData = ev.target.result;
+          info.textContent = 'Ready to save: ' + chosenName;
+        };
+        r.readAsDataURL(f);
+      };
+
+      modal.querySelector('#saveResumeBtn').onclick = () => {
+        if (!chosenData) return alert('Choose a file first');
+        user.resumeName = chosenName; user.resumeData = chosenData; saveUser(user);
+        apps = apps.map(a => {
+          if (a.userEmail === user.email && !a.resumeData) {
+            return { ...a, resumeName: chosenName, resumeData: chosenData };
+          }
+          return a;
+        });
+        saveApps(apps);
+        closeModal(); render(); alert('Resume saved to your profile.');
+      };
+
+      modal.querySelector('#cancelResumeBtn').onclick = closeModal;
+    }
+
+    function openEditProfileModal(){
+      if (!user) return alert('Sign in first');
+      const html = `
+        <h3>Edit Profile</h3>
+        <div style="display:grid;gap:10px">
+          <div style="display:flex;gap:8px;align-items:center">
+            <div class="avatar" id="editAvatar">${user.avatarName ? `<img src="${user.avatarData}" style="width:64px;height:64px;border-radius:10px;object-fit:cover"/>` : (user.name ? user.name.split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase() : 'JG')}</div>
+            <div style="flex:1">
+              <input id="editName" placeholder="Full name" value="${escapeHtml(user.name)}" />
+              <input id="editEmail" placeholder="Email" value="${escapeHtml(user.email)}" />
+              <div style="margin-top:8px">
+                <label class="small muted">Upload profile picture</label>
+                <input id="editAvatarFile" type="file" accept="image/*"/>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="small muted">Portfolio links (press Add)</div>
+            <div style="display:flex;gap:8px;margin-top:6px"><input id="portTitle" placeholder="Title (e.g. Portfolio)" /><input id="portLink" placeholder="https://your.link" /><button class="btn" id="addPortBtn">Add</button></div>
+            <div id="portList" style="margin-top:8px">${user.portfolio && user.portfolio.length ? user.portfolio.map((p,i)=>`<div class="chip" style="display:inline-block;margin-right:6px;margin-bottom:6px">${escapeHtml(p.title||p.link)} <button data-port="${i}" style="margin-left:8px;background:transparent;border:none;color:var(--muted);cursor:pointer">✕</button></div>`).join('') : '<div class="small muted">No portfolio links</div>'}</div>
+          </div>
+
+          <div>
+            <div class="small muted">Certificates (one per line)</div>
+            <textarea id="certsArea" placeholder="e.g. Google Ads Certification\nUpwork Top Rated" >${user.certificates ? user.certificates.join('\n') : ''}</textarea>
+          </div>
+
+          <div>
+            <div class="small muted">Previous jobs / experience (one per line)</div>
+            <textarea id="prevJobsArea" placeholder="e.g. 2020-2022 — VA at Company X">${user.previousJobs ? user.previousJobs.join('\n') : ''}</textarea>
+          </div>
+
+          <div style="display:flex;gap:8px">
+            <button class="btn" id="saveProfileBtn">Save Profile</button>
+            <button class="btn ghost" id="cancelProfileBtn">Cancel</button>
+          </div>
+        </div>
+      `;
+      const modal = openModal(html);
+
+      const avatarFile = modal.querySelector('#editAvatarFile');
+      const avatarPreview = modal.querySelector('#editAvatar');
+      let avatarData=null, avatarName=null;
+      avatarFile.onchange = e => {
+        const f = e.target.files[0];
+        if (!f) return;
+        avatarName = f.name;
+        const r = new FileReader();
+        r.onload = ev => {
+          avatarData = ev.target.result;
+          avatarPreview.innerHTML = `<img src="${avatarData}" style="width:64px;height:64px;border-radius:10px;object-fit:cover"/>`;
+        };
+        r.readAsDataURL(f);
+      };
+
+      const portListEl = modal.querySelector('#portList');
+      const portfolio = user.portfolio ? [...user.portfolio] : [];
+      function refreshPortList(){
+        if (!portfolio.length) portListEl.innerHTML = '<div class="small muted">No portfolio links</div>';
+        else portListEl.innerHTML = portfolio.map((p,i)=>`<div class="chip" style="display:inline-block;margin-right:6px;margin-bottom:6px">${escapeHtml(p.title||p.link)} <button data-port="${i}" style="margin-left:8px;background:transparent;border:none;color:var(--muted);cursor:pointer">✕</button></div>`).join('');
+        portListEl.querySelectorAll('button[data-port]').forEach(b=>b.onclick = (ev)=>{ portfolio.splice(+b.dataset.port,1); refreshPortList();});
+      }
+      refreshPortList();
+      modal.querySelector('#addPortBtn').onclick = () => {
+        const t = modal.querySelector('#portTitle').value.trim();
+        const l = modal.querySelector('#portLink').value.trim();
+        if (!l) return alert('Enter a link');
+        portfolio.push({title:t,link:l});
+        modal.querySelector('#portTitle').value=''; modal.querySelector('#portLink').value='';
+        refreshPortList();
+      };
+
+      modal.querySelector('#saveProfileBtn').onclick = () => {
+        const newName = modal.querySelector('#editName').value.trim();
+        const newEmail = modal.querySelector('#editEmail').value.trim();
+        const certs = modal.querySelector('#certsArea').value.split('\n').map(s=>s.trim()).filter(Boolean);
+        const prevs = modal.querySelector('#prevJobsArea').value.split('\n').map(s=>s.trim()).filter(Boolean);
+        if (!newName || !newEmail) return alert('Name and email required');
+        user.name = newName; user.email = newEmail;
+        if (avatarData) { user.avatarName = avatarName; user.avatarData = avatarData; }
+        user.portfolio = portfolio;
+        user.certificates = certs;
+        user.previousJobs = prevs;
+        saveUser(user);
+        apps = apps.map(a => a.userEmail === user.email ? {...a, name: user.name } : a);
+        saveApps(apps);
+        closeModal(); render();
+        alert('Profile saved.');
+      };
+
+      modal.querySelector('#cancelProfileBtn').onclick = closeModal;
+    }
+
+    window.openAuthModal = openAuthModal;
+
+    const splashRoot = $('#splashRoot');
+    const getStartedBtn = $('#getStartedBtn');
+    const learnMoreBtn = $('#learnMoreBtn');
+    getStartedBtn.onclick = () => { splashRoot.style.display = 'none'; currentPage = 'home'; render(); };
+    learnMoreBtn.onclick = () => { alert('JobsGotYouPH helps Filipino Virtual Assistants & Freelancers connect with clients. Create an account, post jobs, upload resume and portfolio, then apply.'); };
+
+    buildNav();
+
+    document.addEventListener('keydown', (e) => {
+      if (document.getElementById('splashRoot') && document.getElementById('splashRoot').style.display !== 'none') return;
+      if (e.key === 'j') { currentPage='jobs'; render(); }
+      if (e.key === 'h') { currentPage='home'; render(); }
+      if (e.key === 'd') { currentPage='dashboard'; render(); }
+    });
+
+    function attachJobActions(){
+      $$('[data-act="apply"]').forEach(b => b.onclick = (e) => {
+        const id = +b.dataset.id; openApplyModal(id);
+      });
+      $$('[data-act="view"]').forEach(b => b.onclick = (e) => {
+        const id = +b.dataset.id; openViewModal(id);
+      });
+    }
+
+    // Render only after splash closed or when navigation triggers it.
+    // If user reloads and splash was hidden, render will run; otherwise render is called after Get Started click.
+    // However, to ensure nav shows, call buildNav initially (already called).
+
+    // Expose render to console for debugging
+    window._jobsgotyou_render = render;
+
+  </script>
+</body>
+</html>
+a
