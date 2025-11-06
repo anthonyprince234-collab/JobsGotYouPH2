@@ -136,6 +136,24 @@
         </div>
       </aside>
     </main>
+<!-- Visitor Counter -->
+<div id="visitCounter" style="text-align:center;margin:12px 0;font-size:13px;color:#94a3b8;">
+  Loading site visits...
+</div>
+
+<!-- CountAPI visitor counter -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+  const pageId = "jobsgotyoph_home"; // unique identifier for your site/page
+  axios.get(`https://api.countapi.xyz/hit/${pageId}/visits`)
+    .then(res => {
+      document.getElementById('visitCounter').textContent = `🌐 Site visits: ${res.data.value}`;
+    })
+    .catch(err => {
+      console.error(err);
+      document.getElementById('visitCounter').textContent = "Visitor count unavailable";
+    });
+</script>
 
     <footer>
       © 2025 JobsGotYouPH — Connecting Filipino Virtual Assistants & Freelancers
